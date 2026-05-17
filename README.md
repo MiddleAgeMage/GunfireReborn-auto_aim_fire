@@ -1,4 +1,4 @@
-# PVE FPS 自动瞄准系统 - 开发记录
+# 枪火重生-基于YOLOv8的自动瞄准系统实践
 
 ## 项目概述
 
@@ -169,7 +169,7 @@ max_move: 150               # 单帧最大移动像素
 **启动**:
 ```bash
 命令行指定python解释器运行auto_aim/aim.py
-例如：C:/Users/xxxx/.conda/envs/py38/python.exe C:/xxx/auto_aim/aim.py
+如：C:/Users/xxxx/.conda/envs/py38/python.exe C:/xxx/auto_aim/aim.py
 ```
 
 **控制**:
