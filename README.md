@@ -166,13 +166,45 @@ max_move: 150               # 单帧最大移动像素
 
 ## 使用方法
 
-**启动**:
+### 启动方式
+
 ```bash
-命令行指定python解释器运行auto_aim/aim.py
-如：C:/Users/xxxx/.conda/envs/py38/python.exe C:/xxx/auto_aim/aim.py
+# 命令行指定python解释器运行aim.py
+C:/Users/xxxx/.conda/envs/py38/python.exe C:/xxx/auto_aim/aim.py
 ```
 
-**控制**:
+### 推理模式选择
+
+项目默认使用 **TensorRT** 引擎推理（更快），如果没有安装 TensorRT 或遇到兼容性问题，可以切换为 **PyTorch** 推理。
+
+#### 方式一：TensorRT 推理（默认，推荐）
+
+- 推理速度：~6.6ms/帧
+- 需要安装 TensorRT
+- 模型文件：`training/runs/train/head_detect/weights/best.engine`
+
+#### 方式二：PyTorch 推理（无需 TensorRT）
+
+- 推理速度：~20ms/帧
+- 无需额外安装，只要有 PyTorch + CUDA
+- 模型文件：`training/runs/train/head_detect/weights/best.pt`
+
+**切换方法**：编辑 `config.yaml`，修改 `model_path`：
+
+```yaml
+# 使用 TensorRT（默认）
+model_path: "training/runs/train/head_detect/weights/best.engine"
+
+# 使用 PyTorch（无需 TensorRT）
+model_path: "training/runs/train/head_detect/weights/best.pt"
+```
+
+**没有 GPU 也可以运行**：
+- 将 `config.yaml` 中的 `half: true` 改为 `half: false`
+- 推理会变慢（~43ms/帧），但仍然可用
+
+### 控制按键
+
 - `X1`（侧键后退）— 按住临时激活瞄准
 - `X2`（侧键前进）— 切换瞄准开关
 - `F11` — 切换自动开火
