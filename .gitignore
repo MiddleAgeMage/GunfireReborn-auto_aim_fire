@@ -1,0 +1,38 @@
+# 数据集和截图（太大，不上传）
+captures/
+dataset/
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# 调试文件
+debug_*.py
+test_*.py
+debug_frame.jpg
+
+# 批处理文件
+*.bat
+*.pyw
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 系统文件
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# 虚拟环境
+venv/
+.venv/
+env/
+
+# 日志
+*.log

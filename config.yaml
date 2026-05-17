@@ -1,0 +1,26 @@
+# PVE FPS 自动瞄准系统配置
+# 屏幕设置
+screen_width: 2560
+screen_height: 1440
+
+# 截图区域（以准星为中心的正方形区域，像素）
+capture_size: 1280
+
+# 模型设置
+model_path: "training/runs/train/head_detect/weights/best.engine"
+confidence: 0.42
+imgsz: 480
+half: true
+
+# 鼠标设置
+sensitivity: 0.8
+max_move: 150
+smoothing_steps: 3
+
+# 瞄准目标设置
+target_switch_threshold: 0.3   # 新目标比当前近多少才切换 (0.3 = 30%)
+target_track_range: 200        # 目标追踪范围 (像素)，超出则丢失
+target_lost_frames: 3          # 目标丢失多少帧后才允许切换
+
+# 性能设置
+target_fps: 60
